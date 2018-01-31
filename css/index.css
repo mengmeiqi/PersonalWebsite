@@ -1,0 +1,16 @@
+/*header start*/
+.media-icon{
+    color:#fff;
+    background: #34495e;
+    height:30px;
+    overflow:hidden;
+    position:absolute;
+    line-height:30px;
+    top:0;
+    left:0;
+    width:100%;
+}
+#hi{
+    text-align:center;
+}
+/*header end*/
