@@ -14,3 +14,34 @@
     text-align:center;
 }
 /*header end*/
+
+/*nav start*/
+nav{
+    position:absolute;
+    top:30px;
+    left:0;
+    width:100%;
+    border-top: 4px solid #337ab7;
+    background: #34495e;
+    height:60px;
+}
+nav ul{
+
+}
+.text-center ul li{
+    float:left;
+    width:20%;
+    color:#fff;
+    text-align: center;
+}
+.text-center ul li a{
+    /*height:60px;*/
+    padding:20px 0;
+    width:100%;
+    color:#FFFFFF;
+    text-align: center;
+}
+.text-center ul li a span{
+    font-size:2.2rem;
+}
+/*nav end*/
