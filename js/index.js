@@ -9,3 +9,11 @@ var now = time.toString();
 oClock.innerHTML = now;
 /*header里面的时间 end*/
 
+/*nav 图片下面的字 start*/
+var oNav = document.getElementById("nav");
+var aLi = oNav.getElementsByTagName("li");
+var aA = oNav.getElementsByTagName("a");
+for(var i=0;i<aLi.length;i++){
+
+}
+/*nav 图片下面的字 end*/
