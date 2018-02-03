@@ -9,11 +9,27 @@ var now = time.toString();
 oClock.innerHTML = now;
 /*header里面的时间 end*/
 
-/*nav 图片下面的字 start*/
-var oNav = document.getElementById("nav");
-var aLi = oNav.getElementsByTagName("li");
-var aA = oNav.getElementsByTagName("a");
-for(var i=0;i<aLi.length;i++){
-
+/*nav 图片下面的字符串 start*/
+var oChac = document.getElementById("chac");
+var sentence = "Welcome to PersonalWebsite.";
+var aStr = [];
+var index = 0;
+for(var i=0;i<sentence.length;i++){
+    var oSentence = sentence.charAt(i);
+    aStr.push(oSentence);
+    aStr[i].index = i;
 }
-/*nav 图片下面的字 end*/
+var str = "";
+function Obtain(){
+    str = str + aStr[index];
+    index++;
+    oChac.innerHTML=str;
+}
+Obtain();
+var timer = setInterval(function(){
+    Obtain();
+    if(index == aStr.length){
+        clearInterval(timer);
+    }
+},300);
+/*nav 图片下面的字符串 end*/

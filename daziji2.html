@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打字机效果</title>
+    <style>
+        .typewriter {
+            width: 50rem;
+            padding: 1.5rem 3rem;
+            border: 1px solid #ccc;
+            line-height: 1.5;
+            font-size: 1.6rem;
+            color: #333;
+            margin: 5% auto;
+        }
+        @@keyframes flash {
+             0% {
+                 visibility: visible;
+             }
+             100% {
+                 visibility: hidden;
+             }
+         }
+        .typewriter:after {
+            content: "_";
+            animation: flash .6s steps(2, start) infinite;
+        }
+    </style>
+</head>
+
+<body>
+<div class="typewriter">
+    1. Whatever is worth doing is worth doing well.<br />  任何值得做的，就把它做好。
+</div>
+<script>
+    function show() {
+        var typewriter = document.querySelector('.typewriter');
+        var code = typewriter.innerHTML;
+        var i = 0;
+        typewriter.innerHTML = "";
+        typeWriting();
+
+        function typeWriting() {
+            i++;
+            if (i <= code.length) {
+                switch (code.charAt(i)) {
+                    case '<':
+                        i = code.indexOf(">", i);
+                        break;
+                    case '&':
+                        i = code.indexOf(";", i);
+                        break;
+                }
+                typewriter.innerHTML = code.substr(0, i);
+                setTimeout(typeWriting, 150);
+            } else {
+                setTimeout(show, 2000);
+            }
+        }
+    }
+    window.onload = show;
+</script>
+</body>
+
+</html>
