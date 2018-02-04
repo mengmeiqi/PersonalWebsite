@@ -10,26 +10,30 @@ oClock.innerHTML = now;
 /*header里面的时间 end*/
 
 /*nav 图片下面的字符串 start*/
-var oChac = document.getElementById("chac");
-var sentence = "Welcome to PersonalWebsite.";
-var aStr = [];
-var index = 0;
-for(var i=0;i<sentence.length;i++){
-    var oSentence = sentence.charAt(i);
-    aStr.push(oSentence);
-    aStr[i].index = i;
-}
-var str = "";
-function Obtain(){
-    str = str + aStr[index];
-    index++;
-    oChac.innerHTML=str;
-}
-Obtain();
-var timer = setInterval(function(){
-    Obtain();
-    if(index == aStr.length){
-        clearInterval(timer);
+function show() {
+    var oTypewriter = document.getElementById("typewriter");
+    var code = oTypewriter.innerHTML;
+    var i = 0;
+    oTypewriter.innerHTML = "";
+    typeWriting();
+
+    function typeWriting() {
+        i++;
+        if (i <= code.length) {
+            switch (code.charAt(i)) {
+                case '<':
+                    i = code.indexOf(">", i);
+                    break;
+                case '&':
+                    i = code.indexOf(";", i);
+                    break;
+            }
+            oTypewriter.innerHTML = code.substr(0, i);
+            setTimeout(typeWriting, 150);
+        } else {
+            setTimeout(show, 2000);
+        }
     }
-},300);
+}
+window.onload = show;
 /*nav 图片下面的字符串 end*/
