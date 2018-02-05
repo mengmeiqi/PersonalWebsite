@@ -19,6 +19,9 @@ div.hr{
     height:1px;
     margin:auto
 }
+li{
+    list-style: none;
+}
 /*header start*/
 .media-icon{
     color:#fff;
