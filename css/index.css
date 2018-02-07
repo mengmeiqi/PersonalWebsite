@@ -194,6 +194,36 @@ nav li a span{
     left:auto;
     right:-15px
 }
+#about{
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+}
+#about ul li{
+    line-height:58px;
+    font-size: 1.7rem;
+    text-align: left;
+    padding-left:20px;
+    cursor:pointer;
+}
+#about ul li:hover{
+    -webkit-box-shadow: inset 0 0 50px rgba(255,255,255,.05),
+    0 0 7px rgba(255,255,255,.3);
+    box-shadow: inset 0 0 50px rgba(255,255,255,.05),
+    0 0 7px rgba(255,255,255,.3)
+}
+@media (max-width:991px) {
+    #about ul{
+        clear:both;
+    }
+    #about ul li{
+        line-height:20px;
+        text-align: center;
+        padding-top:10px;
+        padding-left:0;
+        padding-bottom:10px;
+    }
+}
 #about .h1 + p{
     width:90%;
     margin: 30px auto;
@@ -239,5 +269,5 @@ nav li a span{
 #about .row > div > div:hover span{
     color:#337ab7;
 }
-
 /*section about end*/
+
