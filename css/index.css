@@ -300,4 +300,50 @@ nav li a span{
 .progressbar-text{
     font-weight: 100 !important;
 }
+#skills .text-center{
+    margin-bottom: 50px
+}
+
+#skills .taps > span{
+    display: block;
+    height:50px;
+    line-height: 50px;
+    font-size: 20px;
+    color:#DDD;
+    padding-left:35px;
+    background-color:rgba(30, 144, 255, 0.2);
+    cursor: pointer;
+    position: relative
+}
+
+#skills .taps > span::after{
+    position: absolute;
+    top:0px;
+    right:30px;
+    color:#AAA;
+    font-family: FontAwesome;
+    content:"\f067";
+    font-size: 30px
+}
+
+#skills .taps > span + div{
+    padding:25px 10px;
+    color:#FFF;
+    background-color:rgba(0, 0, 0, 0.35);
+    margin:0
+}
+
+#skills .taps > span:not(:first-of-type) + div{
+    display: none
+}
+
+.span-active{
+    background-color:rgba(30, 144, 255, 0.6) !important;
+    color:#FFF !important
+}
+
+.span-active::after{
+    content:"\f068" !important;
+}
+
 /*section skill end*/
