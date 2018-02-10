@@ -234,7 +234,6 @@ nav li a span{
     color:#FFF;
     text-transform: uppercase;
     font-weight: 100;
-    letter-spacing: 0.5px
 }
 #about h3 + span{
     font-size: 50px;
@@ -295,8 +294,8 @@ nav li a span{
 .circle ~ p {
     font-size: 18px;
 }
-#skills .text-center{
-    margin-bottom: 50px
+#skills div.lead li{
+    text-align: left;
 }
 #skills .taps > span{
     display: block;
@@ -307,37 +306,30 @@ nav li a span{
     padding-left:35px;
     background-color:rgba(30, 144, 255, 0.2);
     cursor: pointer;
-    position: relative
+    position: relative;
 }
-
 #skills .taps > span::after{
     position: absolute;
-    top:0px;
+    top:0;
     right:30px;
     color:#AAA;
-    font-family: FontAwesome;
     content:"\f067";
     font-size: 30px
 }
-
 #skills .taps > span + div{
     padding:25px 10px;
     color:#FFF;
     background-color:rgba(0, 0, 0, 0.35);
     margin:0
 }
-
 #skills .taps > span:not(:first-of-type) + div{
     display: none
 }
-
 .span-active{
     background-color:rgba(30, 144, 255, 0.6) !important;
     color:#FFF !important
 }
-
 .span-active::after{
     content:"\f068" !important;
 }
-
 /*section skill end*/

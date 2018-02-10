@@ -32,11 +32,11 @@ function show() {
         }
     }
 }
-window.onload = show;
 /*nav 图片下面的字符串 end*/
 
 /*section skill 进度条 start*/
 window.onload = function(){
+    show();
     function toCanvas(id ,progress){
         var canvas = document.getElementById(id),
             ctx = canvas.getContext("2d"),
