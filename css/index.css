@@ -274,6 +274,9 @@ nav li a span{
 #skills{
     background: #34495e;
     color: #ffffff;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
 }
 #skills h2{
     margin-bottom:80px

@@ -130,6 +130,6 @@ window.onload = function(){
 /*section skill 下拉菜单 start*/
 $(".taps > span").click(function(){
     $(this).addClass("span-active").siblings("span").removeClass("span-active");
-    $(this).next().slideDown().siblings("div").slideUp()
+    $(this).next().slideDown().siblings("div").slideUp();
 });
 /*section skill 下拉菜单 end*/
