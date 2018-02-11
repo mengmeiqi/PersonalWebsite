@@ -2,6 +2,9 @@ html,body{
     height:100%;
     width:100%;
 }
+body{
+    background: #2C3E50;
+}
 .text-center{
     text-align: center;
 }
@@ -150,7 +153,6 @@ nav li a span{
 
 /*section about start*/
 #about{
-    background: #34495e;
     color: #ffffff;
 }
 .heading{
@@ -272,7 +274,6 @@ nav li a span{
 
 /*section skill start*/
 #skills{
-    background: #34495e;
     color: #ffffff;
     -webkit-transition: all .3s linear;
     -o-transition: all .3s linear;
@@ -316,7 +317,7 @@ nav li a span{
     top:0;
     right:30px;
     color:#AAA;
-    content:"\f067";
+    content:"+";
     font-size: 30px
 }
 #skills .taps > span + div{
@@ -333,6 +334,111 @@ nav li a span{
     color:#FFF !important
 }
 .span-active::after{
-    content:"\f068" !important;
+    content:"-" !important;
 }
 /*section skill end*/
+
+/*section works start*/
+#works h2{
+    margin-bottom: 100px;
+}
+#works .container > .row > .col-sm-6 > div{
+    position: relative;
+    max-height: 250px;
+    margin-bottom: 40px;
+    background-image: url("../img/site-1.png");
+    background-size: cover;
+    min-height: 250px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 10px solid #34495e;
+    -webkit-box-shadow: inset 0 0 0 250px rgba(0,0,0,.3);
+    box-shadow: inset 0 0 0 250px rgba(0,0,0,.3);
+    overflow: hidden;
+}
+#works .container > .row > .col-sm-6:nth-of-type(2) > div{
+    background-image: url("../img/site-2.jpg");
+}
+#works .container > .row > .col-sm-6:nth-of-type(3) > div{
+    background-image: url("../img/site-3.png");
+}
+#works .container > .row > .col-sm-6:nth-of-type(4) > div{
+    background-image: url("../img/site-4.jpg");
+}
+#works .container > .row > .col-sm-6:nth-of-type(5) > div{
+    background-image: url("../img/site-5.jpg");
+}
+#works .container > .row > .col-sm-6:last-of-type > div{
+    background-image: url("../img/site-6.jpg");
+}
+#works .hov-img{
+    height:250px;
+    width:100%;
+    position: relative;
+    top:0;
+    left:0;
+    -webkit-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear
+}
+#works .hov-img > div{
+    height:100%;
+    width:50%;
+    position: absolute;
+    top:0;
+    left:-50%;
+    background-color:#2C3E50;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear
+}
+#works .hov-img:hover > div:first-of-type{
+    left:0
+}
+#works .hov-img > div:last-of-type{
+    left:100%
+}
+#works .hov-img:hover > div:last-of-type{
+    left:50%
+}
+#works .hov-img > div:nth-of-type(2) a,
+#works .hov-img > div:nth-of-type(2){
+    z-index: 9;
+    width: 100%;
+    color:#FFF;
+    font-size: 18px;
+    background:none;
+    left:0
+}
+#works .hov-img > div:nth-of-type(2) a i{
+    height:60px;
+    width:60px;
+    background-color:rgba(255,255,255,.1);
+    border-radius: 50%;
+    line-height: 60px;
+    text-align: center;
+    position: relative;
+    top:-60px;
+    left:5px;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear;
+}
+#works .hov-img > div:nth-of-type(2) a:hover i{
+    background-color:#337ab7;
+}
+#works .hov-img:hover > div:nth-of-type(2) a i{
+    top:85px;
+}
+#portfolio .hov-img > div:nth-of-type(2) > i{
+    position: absolute;
+    right:15px;
+    bottom:-30px;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear
+}
+#works .hov-img:hover > div:nth-of-type(2) > i{
+    bottom:30px
+}
+/*section works end*/
