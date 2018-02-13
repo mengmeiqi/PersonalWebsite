@@ -637,4 +637,12 @@ footer .list-unstyled li a i{
 footer .list-unstyled li a i:hover{
     background-color:#1E90FF;
 }
+#img div{
+    height:200px;
+    width:200px;
+    /*display:none;*/
+}
+#img img{
+    height:200px;
+}
 /*footer end*/
