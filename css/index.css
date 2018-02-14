@@ -43,12 +43,14 @@ li{
     background: #34495e;
     height:34px;
     overflow:hidden;
-    position:absolute;
+    /*position:absolute;*/
+    position:fixed;
     line-height:30px;
     top:0;
     left:0;
     width:100%;
     border-bottom: 4px solid #337ab7;
+    z-index: 1000;
 }
 #hi{
     text-align:center;
@@ -58,7 +60,7 @@ li{
 /*nav start*/
 nav{
     height:100px;
-    position:absolute;
+    /*position:absolute;*/
     top:34px;
     left:0;
     width:100%;
@@ -67,6 +69,8 @@ nav{
     -webkit-transition:all 0.2s linear;
     -moz-transition:all 0.2s linear;
     -o-transition:all 0.2s linear;
+    position: fixed;
+    z-index: 1000;
 }
 nav li{
     width:20%;
