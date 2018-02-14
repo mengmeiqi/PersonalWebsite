@@ -43,8 +43,8 @@ li{
     background: #34495e;
     height:34px;
     overflow:hidden;
-    /*position:absolute;*/
-    position:fixed;
+    position:absolute;
+    /*position:fixed;*/
     line-height:30px;
     top:0;
     left:0;
