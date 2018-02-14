@@ -915,7 +915,7 @@ nav .container ul li:hover{
     outline: none;
     font-size: 18px;
     color:#FFF;
-    border:1px solid transparent;
+    /*border:1px solid transparent;*/
     border-bottom:4px solid #FFF;
     -webkit-transition: all .3s linear;
     -o-transition: all .3s linear;
