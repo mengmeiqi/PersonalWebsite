@@ -55,6 +55,40 @@ $(function(){
             scrollTop : e.state
         }, 1000);
     };
+    window.onscroll = function(){
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        for(var i=0;i<aLi.length;i++){
+            if( scrollTop + 70 >= aBlock[i].offsetTop){
+                for(var j=0;j<aLi.length;j++){
+                    aLi[j].className = "";
+                }
+                aLi[i].className = "active";
+            }
+        }
+    };
+    for(var i=0;i<aLi.length;i++){
+        var interval;
+        aLi[i].index = i;
+        aLi[i].onclick = function(){
+            var self = this;
+            clearInterval(interval);
+            interval = setInterval(function(){
+                if(document.body.scrollTop + 70<=aBlock[self.index].offsetTop){
+                    document.body.scrollTop += 40;
+                    if(document.body.scrollTop + 70>=aBlock[self.index].offsetTop){
+                        document.body.scrollTop = aBlock[self.index].offsetTop-70;
+                        clearInterval(interval);
+                    }
+                }else{
+                    document.body.scrollTop /= 1.1;
+                    if(document.body.scrollTop + 70<=aBlock[self.index].offsetTop){
+                        document.body.scrollTop = aBlock[self.index].offsetTop-70;
+                        clearInterval(interval);
+                    }
+                }
+            },40);
+        };
+    }
 });
 /*nav 导航条 下拉条 end*/
 
