@@ -35,25 +35,27 @@ function show() {
 /*nav 图片下面的字符串 end*/
 
 /*nav 导航条 下拉条 start*/
-//$(function(){
-//    var oNav = document.getElementById("nav");
-//    var aA = oNav.getElementsByTagName("a");
-//    for(var i=0;i<aA.length;i++){
-//        aA[i].onclick = function(){
-//            var href = $(this).attr("href");//#div1 #dvi2 #div3
-//            var top = $(href).offset().top;
-//            $("body,html").animate({
-//                "scrollTop":top - 70
-//            },1000);
-//            history.pushState(top, "");
-//        }
-//    }
-//    window.onpopstate = function(e){
-//        $(document.body).animate({
-//            scrollTop : e.state
-//        }, 1000);
-//    };
-//});
+$(function(){
+    var oNav = document.getElementById("nav");
+    var aA = oNav.getElementsByTagName("a");
+    var aLi = oNav.getElementsByTagName("li");
+    var aBlock = oNav.getElementsByClassName("block");
+    for(var i=0;i<aA.length;i++){
+        aA[i].onclick = function(){
+            var href = $(this).attr("href");//#div1 #dvi2 #div3
+            var top = $(href).offset().top;
+            $("body,html").animate({
+                "scrollTop":top - 70
+            },1000);
+            history.pushState(top, "");
+        }
+    }
+    window.onpopstate = function(e){
+        $(document.body).animate({
+            scrollTop : e.state
+        }, 1000);
+    };
+});
 /*nav 导航条 下拉条 end*/
 
 /*section skill 进度条 start*/
