@@ -35,19 +35,32 @@ function show() {
 /*nav 图片下面的字符串 end*/
 
 /*nav 导航条 下拉条 start*/
+/*
+var navContainer = document.getElementById("nav-container");
+var num = navContainer.offsetTop;
+var a = navContainer.offsetHeight;
+var navBox = document.getElementById("nav-box");
+var aLi = navBox.getElementsByTagName("li");
+var aBlock = document.getElementsByClassName("block");
+var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+*/
 $(function(){
+    var oHeader = document.getElementById("header");
     var oNav = document.getElementById("nav");
     var aA = oNav.getElementsByTagName("a");
     var aLi = oNav.getElementsByTagName("li");
-    var aBlock = oNav.getElementsByClassName("block");
-    for(var i=0;i<aA.length;i++){
-        aA[i].onclick = function(){
-            var href = $(this).attr("href");//#div1 #dvi2 #div3
+    var aBlock = document.getElementsByClassName("block");
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    var h = oHeader.offsetHeight + oNav.offsetHeight ;
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function(){
+            var href = $(this).children("a").attr("href");
             var top = $(href).offset().top;
             $("body,html").animate({
-                "scrollTop":top - 70
+                "scrollTop":top - h
             },1000);
             history.pushState(top, "");
+            $(this).addClass("active").siblings().removeClass("active");
         }
     }
     window.onpopstate = function(e){
@@ -55,41 +68,29 @@ $(function(){
             scrollTop : e.state
         }, 1000);
     };
-    window.onscroll = function(){
-        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-        for(var i=0;i<aLi.length;i++){
-            if( scrollTop + 70 >= aBlock[i].offsetTop){
-                for(var j=0;j<aLi.length;j++){
-                    aLi[j].className = "";
+    window.scroll = function() {
+        for (var i = 0; i < aBlock.length; i++) {
+            aBlock[i].index = i;
+            if (scrollTop >= h) {//下滚
+                if (scrollTop - h >= aBlock[i].offsetTop) {
+                    for(var i=0;i<aLi.length;i++){
+                        aLi[i].className = "";
+                    }
+                    aLi[this.index].className = "active";
                 }
-                aLi[i].className = "active";
+            }
+            else {//上滚
+                if (h - scrollTop < aBlock[i].offsetTop) {
+                    for(var i=0;i<aLi.length;i++){
+                        aLi[i].className = "";
+                    }
+                    aLi[this.index].className = "active";
+                }
             }
         }
-    };
-    for(var i=0;i<aLi.length;i++){
-        var interval;
-        aLi[i].index = i;
-        aLi[i].onclick = function(){
-            var self = this;
-            clearInterval(interval);
-            interval = setInterval(function(){
-                if(document.body.scrollTop + 70<=aBlock[self.index].offsetTop){
-                    document.body.scrollTop += 40;
-                    if(document.body.scrollTop + 70>=aBlock[self.index].offsetTop){
-                        document.body.scrollTop = aBlock[self.index].offsetTop-70;
-                        clearInterval(interval);
-                    }
-                }else{
-                    document.body.scrollTop /= 1.1;
-                    if(document.body.scrollTop + 70<=aBlock[self.index].offsetTop){
-                        document.body.scrollTop = aBlock[self.index].offsetTop-70;
-                        clearInterval(interval);
-                    }
-                }
-            },40);
-        };
     }
 });
+
 /*nav 导航条 下拉条 end*/
 
 /*section skill 进度条 start*/
