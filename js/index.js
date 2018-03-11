@@ -74,18 +74,19 @@ $(function(){
     };
     win.scroll(function(){
         var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-        var s = scrollTop + a -20;
+        var s = scrollTop + a - 20;
         if(scrollTop>=30){
             nav.addClass("fixednav");
         }else{
             nav.removeClass("fixednav");
         }
         for(var i=0;i<aLi.length;i++){
-            if( scrollTop + a >= aBlock[i].offsetTop){
+            if( s>= aBlock[i].offsetTop){
                 for(var j=0;j<aLi.length;j++){
                     aLi[j].className = "";
                 }
                 aLi[i].className = "active";
+                location.hash=aA[i].href;
             }
         }
     });
