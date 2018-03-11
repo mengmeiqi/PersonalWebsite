@@ -44,7 +44,7 @@ li{
     height:34px;
     overflow:hidden;
     /*position:absolute;*/
-    position:fixed;
+    /*position:fixed;*/
     line-height:30px;
     top:0;
     left:0;
@@ -60,7 +60,7 @@ li{
 /*nav start*/
 nav{
     height:100px;
-    /*position:absolute;*/
+    position:absolute;
     top:34px;
     left:0;
     width:100%;
@@ -69,8 +69,15 @@ nav{
     -webkit-transition:all 0.2s linear;
     -moz-transition:all 0.2s linear;
     -o-transition:all 0.2s linear;
-    position: fixed;
+    /*position: fixed;*/
     z-index: 1000;
+}
+.fixednav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
 }
 nav li{
     width:20%;

@@ -35,29 +35,29 @@ function show() {
 /*nav 图片下面的字符串 end*/
 
 /*nav 导航条 下拉条 start*/
-/*
-var navContainer = document.getElementById("nav-container");
-var num = navContainer.offsetTop;
-var a = navContainer.offsetHeight;
-var navBox = document.getElementById("nav-box");
-var aLi = navBox.getElementsByTagName("li");
-var aBlock = document.getElementsByClassName("block");
-var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-*/
 $(function(){
+    var nav=$("#nav"); //得到导航对象
+    var win=$(window); //得到窗口对象
+    var sc=$(document);//得到document文档对象。
+    win.scroll(function(){
+        if(sc.scrollTop()>=30){
+            nav.addClass("fixednav");
+        }else{
+            nav.removeClass("fixednav");
+        }
+    });
     var oHeader = document.getElementById("header");
     var oNav = document.getElementById("nav");
     var aA = oNav.getElementsByTagName("a");
     var aLi = oNav.getElementsByTagName("li");
     var aBlock = document.getElementsByClassName("block");
-    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-    var h = oHeader.offsetHeight + oNav.offsetHeight ;
+    var h = oNav.offsetHeight ;
     for(var i=0;i<aLi.length;i++){
         aLi[i].onclick = function(){
             var href = $(this).children("a").attr("href");
             var top = $(href).offset().top;
             $("body,html").animate({
-                "scrollTop":top - h
+                "scrollTop":top - h + 20
             },1000);
             history.pushState(top, "");
             $(this).addClass("active").siblings().removeClass("active");
@@ -68,27 +68,6 @@ $(function(){
             scrollTop : e.state
         }, 1000);
     };
-    window.scroll = function() {
-        for (var i = 0; i < aBlock.length; i++) {
-            aBlock[i].index = i;
-            if (scrollTop >= h) {//下滚
-                if (scrollTop - h >= aBlock[i].offsetTop) {
-                    for(var i=0;i<aLi.length;i++){
-                        aLi[i].className = "";
-                    }
-                    aLi[this.index].className = "active";
-                }
-            }
-            else {//上滚
-                if (h - scrollTop < aBlock[i].offsetTop) {
-                    for(var i=0;i<aLi.length;i++){
-                        aLi[i].className = "";
-                    }
-                    aLi[this.index].className = "active";
-                }
-            }
-        }
-    }
 });
 
 /*nav 导航条 下拉条 end*/
