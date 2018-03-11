@@ -51,25 +51,45 @@ $(function(){
     var aA = oNav.getElementsByTagName("a");
     var aLi = oNav.getElementsByTagName("li");
     var aBlock = document.getElementsByClassName("block");
-    var h = oNav.offsetHeight ;
+    var a = oNav.offsetHeight ;
+    var num = oNav.offsetTop;
+    var navContainer = document.getElementById("nav-container");
+    var navBox = document.getElementById("nav-box");
+    var navBoxChild = navBox.children;
     for(var i=0;i<aLi.length;i++){
         aLi[i].onclick = function(){
             var href = $(this).children("a").attr("href");
             var top = $(href).offset().top;
             $("body,html").animate({
-                "scrollTop":top - h + 20
+                "scrollTop":top - a + 20
             },1000);
             history.pushState(top, "");
             $(this).addClass("active").siblings().removeClass("active");
-        }
+        };
     }
     window.onpopstate = function(e){
         $(document.body).animate({
             scrollTop : e.state
         }, 1000);
     };
+    win.scroll(function(){
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        var s = scrollTop + a -20;
+        if(scrollTop>=30){
+            nav.addClass("fixednav");
+        }else{
+            nav.removeClass("fixednav");
+        }
+        for(var i=0;i<aLi.length;i++){
+            if( scrollTop + a >= aBlock[i].offsetTop){
+                for(var j=0;j<aLi.length;j++){
+                    aLi[j].className = "";
+                }
+                aLi[i].className = "active";
+            }
+        }
+    });
 });
-
 /*nav 导航条 下拉条 end*/
 
 /*section skill 进度条 start*/
