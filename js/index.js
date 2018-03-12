@@ -74,14 +74,14 @@ $(function(){
     };
     win.scroll(function(){
         var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-        var s = scrollTop + a - 20;
+        var s = scrollTop - a + 20;
         if(scrollTop>=30){
             nav.addClass("fixednav");
         }else{
             nav.removeClass("fixednav");
         }
         for(var i=0;i<aLi.length;i++){
-            if( s>= aBlock[i].offsetTop){
+            if( s>=aBlock[i].offsetTop){
                 for(var j=0;j<aLi.length;j++){
                     aLi[j].className = "";
                 }
@@ -192,3 +192,31 @@ $(".taps > span").click(function(){
     $(this).next().slideDown().siblings("div").slideUp();
 });
 /*section skill ÏÂÀ­²Ëµ¥ end*/
+
+/*tip start*/
+tooltip("list-unstyled li");
+function tooltip(selector){
+    $(selector).hover(function(e){
+        this.tip = $(this).attr("title") ? $(this).attr("title"):$(this).html();
+        if($(".tip").length == 0){
+            var $tooltip = $("<div class= 'tip'></div>").html(this.title);
+            $tooltip.appendTo($("body"));
+        }else{
+            $(".tip").html(this.tip);
+        }
+        $(".tip").offset({
+            left: e.pageY + 10 ,
+            top: e.pageX +10
+        });
+        $(this).removeAttr("title");
+    },function(){
+        $(this).attr("title", this.tip);
+        $(".tip").remove();
+    }).on("mousemove", function(e){
+        $(".tip").offset({
+            top: e.pageY+10 ,
+            left: e.pageX+10
+        });
+    });
+}
+/*tip end*/

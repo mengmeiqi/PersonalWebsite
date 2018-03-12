@@ -648,5 +648,10 @@ footer .list-unstyled li a i{
 footer .list-unstyled li:hover{
     background-color:#1E90FF;
 }
+.tip{
+    position: absolute;
+    border: 1px solid #000;
+    background-color: #ccc;
+}
 /*footer end*/
 
