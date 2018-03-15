@@ -194,19 +194,19 @@ $(".taps > span").click(function(){
 /*section skill ÏÂÀ­²Ëµ¥ end*/
 
 /*tip start*/
-tooltip("list-unstyled li");
+tooltip(".list-unstyled li a");
 function tooltip(selector){
     $(selector).hover(function(e){
         this.tip = $(this).attr("title") ? $(this).attr("title"):$(this).html();
         if($(".tip").length == 0){
-            var $tooltip = $("<div class= 'tip'></div>").html(this.title);
+            var $tooltip = $("<div class= 'tip'></div>").html("<img src='img/"+$(this).attr("class")+".png' style='height:200px;z-index:500;'>");
             $tooltip.appendTo($("body"));
         }else{
             $(".tip").html(this.tip);
         }
         $(".tip").offset({
-            left: e.pageY + 10 ,
-            top: e.pageX +10
+            left: e.pageY -200 ,
+            top: e.pageX -200
         });
         $(this).removeAttr("title");
     },function(){
@@ -214,8 +214,8 @@ function tooltip(selector){
         $(".tip").remove();
     }).on("mousemove", function(e){
         $(".tip").offset({
-            top: e.pageY+10 ,
-            left: e.pageX+10
+            top: e.pageY-200 ,
+            left: e.pageX-200
         });
     });
 }
