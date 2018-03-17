@@ -220,3 +220,25 @@ function tooltip(selector){
     });
 }
 /*tip end*/
+
+/*Skin peeler start*/
+$(function(){
+    if($.cookie("skin")){
+        var skin = $.cookie("skin");
+        changeSkin(skin);
+    }
+
+    $("#skin li").on("click",function(){
+        var skin = $(this).attr("id");
+        $.cookie("skin",skin,{expires:5});
+        changeSkin(skin);
+    });
+
+    function changeSkin(skin){
+        //ÇĞ»»cssÎÄ¼ş
+        $("#cssfile").attr("href","css/"+  skin +".css");
+        //ÇĞ»»css¾«ÁéÍ¼
+        $("#"+skin).addClass("selected").siblings().removeClass("selected");
+    }
+});
+/*Skin peeler end*/
