@@ -596,7 +596,7 @@ nav li a span{
     margin-top: 5px;
     position: relative;
     overflow: hidden;
-    z-index: 2;
+    z-index: -5;
     outline: none
 }
 .btn::after{

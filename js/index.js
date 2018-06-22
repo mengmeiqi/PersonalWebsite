@@ -1,12 +1,12 @@
 
-/*headerÀïÃæµÄÊ±¼ä start*/
+/*headerï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ start*/
 var oClock = document.getElementById("clock");
 var time = new Date();
 var now = time.toString();
 oClock.innerHTML = now;
-/*headerÀïÃæµÄÊ±¼ä end*/
+/*headerï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ end*/
 
-/*nav Í¼Æ¬ÏÂÃæµÄ×Ö·û´® start*/
+/*nav Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ start*/
 function show() {
     var oTypewriter = document.getElementById("typewriter");
     var code = oTypewriter.innerHTML;
@@ -32,13 +32,13 @@ function show() {
         }
     }
 }
-/*nav Í¼Æ¬ÏÂÃæµÄ×Ö·û´® end*/
+/*nav Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ end*/
 
-/*nav µ¼º½Ìõ ÏÂÀ­Ìõ start*/
+/*nav ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ start*/
 $(function(){
-    var nav=$("#nav"); //µÃµ½µ¼º½¶ÔÏó
-    var win=$(window); //µÃµ½´°¿Ú¶ÔÏó
-    var sc=$(document);//µÃµ½documentÎÄµµ¶ÔÏó¡£
+    var nav=$("#nav"); //ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    var win=$(window); //ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½
+    var sc=$(document);//ï¿½Ãµï¿½documentï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½
     win.scroll(function(){
         if(sc.scrollTop()>=30){
             nav.addClass("fixednav");
@@ -63,15 +63,16 @@ $(function(){
             $("body,html").animate({
                 "scrollTop":top - a + 20
             },1000);
+            // alert("123")
             history.pushState(top, "");
             $(this).addClass("active").siblings().removeClass("active");
         };
     }
-    window.onpopstate = function(e){
-        $(document.body).animate({
-            scrollTop : e.state
-        }, 1000);
-    };
+    // window.onpopstate = function(e){
+    //     $(document.body).animate({
+    //         scrollTop : e.state
+    //     }, 1000);
+    // };
     win.scroll(function(){
         var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
         var s = scrollTop - a + 20;
@@ -81,19 +82,19 @@ $(function(){
             nav.removeClass("fixednav");
         }
         for(var i=0;i<aLi.length;i++){
-            if( s>=aBlock[i].offsetTop){
+            if( s>=aBlock[i].offsetTop-a-150){
                 for(var j=0;j<aLi.length;j++){
                     aLi[j].className = "";
                 }
                 aLi[i].className = "active";
-                location.hash=aA[i].href;
+                // location.hash=aA[i].href;
             }
         }
     });
 });
-/*nav µ¼º½Ìõ ÏÂÀ­Ìõ end*/
+/*nav ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ end*/
 
-/*section skill ½ø¶ÈÌõ start*/
+/*section skill ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ start*/
 window.onload = function(){
     show();
     function toCanvas(id ,progress){
@@ -131,9 +132,9 @@ window.onload = function(){
         }
         function sector(cx, cy, r, startAngle, endAngle, anti) {
             ctx.beginPath();
-            //ctx.moveTo(cx, cy + r); // ´ÓÔ²ÐÎµ×²¿¿ªÊ¼»­
+            //ctx.moveTo(cx, cy + r); // ï¿½ï¿½Ô²ï¿½Îµ×²ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
             ctx.lineWidth = lineWidth;
-            // ½¥±äÉ« - ¿É×Ô¶¨Òå
+            // ï¿½ï¿½ï¿½ï¿½É« - ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½
             var linGrad = ctx.createLinearGradient(
                 circleX-radius-lineWidth, circleY, circleX+radius+lineWidth, circleY
             );
@@ -184,20 +185,21 @@ window.onload = function(){
     toCanvas("circle-5",90);
     toCanvas("circle-6",80);
 };
-/*section skill ½ø¶ÈÌõ end*/
+/*section skill ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ end*/
 
-/*section skill ÏÂÀ­²Ëµ¥ start*/
+/*section skill ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ start*/
 $(".taps > span").click(function(){
     $(this).addClass("span-active").siblings("span").removeClass("span-active");
     $(this).next().slideDown().siblings("div").slideUp();
 });
-/*section skill ÏÂÀ­²Ëµ¥ end*/
+/*section skill ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ end*/
 
 /*tip start*/
 tooltip(".list-unstyled li a");
 function tooltip(selector){
     $(selector).hover(function(e){
         this.tip = $(this).attr("title") ? $(this).attr("title"):$(this).html();
+
         if($(".tip").length == 0){
             var $tooltip = $("<div class= 'tip'></div>").html("<img src='img/"+$(this).attr("class")+".png' style='height:200px;z-index:500;'>");
             $tooltip.appendTo($("body"));
@@ -223,10 +225,10 @@ function tooltip(selector){
 
 /*Skin peeler start*/
 $(function(){
-    if($.cookie("skin")){
-        var skin = $.cookie("skin");
-        changeSkin(skin);
-    }
+    // if($.cookie("skin")){
+    //     var skin = $.cookie("skin");
+    //     changeSkin(skin);
+    // }
 
     $("#skin li").on("click",function(){
         var skin = $(this).attr("id");
@@ -235,9 +237,9 @@ $(function(){
     });
 
     function changeSkin(skin){
-        //ÇÐ»»cssÎÄ¼þ
+        //ï¿½Ð»ï¿½cssï¿½Ä¼ï¿½
         $("#cssfile").attr("href","css/"+  skin +".css");
-        //ÇÐ»»css¾«ÁéÍ¼
+        //ï¿½Ð»ï¿½cssï¿½ï¿½ï¿½ï¿½Í¼
         $("#"+skin).addClass("selected").siblings().removeClass("selected");
     }
 });
